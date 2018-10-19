@@ -1,14 +1,14 @@
 <?php
 	if ( ! defined('ABSPATH') ){ die(); }
-	
+
 	global $avia_config;
-	
+
 	$lightbox_option = avia_get_option( 'lightbox_active' );
 	$avia_config['use_standard_lightbox'] = empty( $lightbox_option ) || ( 'lightbox_active' == $lightbox_option ) ? 'lightbox_active' : 'disabled';
 	/**
 	 * Allow to overwrite the option setting for using the standard lightbox
 	 * Make sure to return 'disabled' to deactivate the standard lightbox - all checks are done against this string
-	 * 
+	 *
 	 * @added_by Günter
 	 * @since 4.2.6
 	 * @param string $use_standard_lightbox				'lightbox_active' | 'disabled'
@@ -18,19 +18,19 @@
 
 	$style 					= $avia_config['box_class'];
 	$responsive				= avia_get_option('responsive_active') != "disabled" ? "responsive" : "fixed_layout";
-	$blank 					= isset($avia_config['template']) ? $avia_config['template'] : "";	
+	$blank 					= isset($avia_config['template']) ? $avia_config['template'] : "";
 	$av_lightbox			= $avia_config['use_standard_lightbox'] != "disabled" ? 'av-default-lightbox' : 'av-custom-lightbox';
 	$preloader				= avia_get_option('preloader') == "preloader" ? 'av-preloader-active av-preloader-enabled' : 'av-preloader-disabled';
 	$sidebar_styling 		= avia_get_option('sidebar_styling');
 	$filterable_classes 	= avia_header_class_filter( avia_header_class_string() );
 	$av_classes_manually	= "av-no-preview"; /*required for live previews*/
 	$av_classes_manually   .= avia_is_burger_menu() ? " html_burger_menu_active" : " html_text_menu_active";
-	
+
 	/**
 	 * @since 4.2.3 we support columns in rtl order (before they were ltr only). To be backward comp. with old sites use this filter.
 	 */
 	$rtl_support			= 'yes' == apply_filters( 'avf_rtl_column_support', 'yes' ) ? ' rtl_columns ' : '';
-	
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="<?php echo "html_{$style} ".$responsive." ".$preloader." ".$av_lightbox." ".$filterable_classes." ".$av_classes_manually ?> ">
 <head>
@@ -69,34 +69,34 @@ wp_head();
 
 
 
-<body id="top" <?php body_class( $rtl_support . $style." ".$avia_config['font_stack']." ".$blank." ".$sidebar_styling); avia_markup_helper(array('context' => 'body')); ?>>
+<body id="top" <?php body_class( array($rtl_support.$style, $avia_config['font_stack'], $blank, $sidebar_styling, 'id-'.$post->ID ) ); avia_markup_helper(array('context' => 'body')); ?>>
 
-	<?php 
-	
+	<?php
+
 	do_action( 'ava_after_body_opening_tag' );
-		
+
 	if("av-preloader-active av-preloader-enabled" === $preloader)
 	{
-		echo avia_preload_screen(); 
+		echo avia_preload_screen();
 	}
-		
+
 	?>
 
 	<div id='wrap_all'>
 
-	<?php 
+	<?php
 	if(!$blank) //blank templates dont display header nor footer
-	{ 
+	{
 		 //fetch the template file that holds the main menu, located in includes/helper-menu-main.php
          get_template_part( 'includes/helper', 'main-menu' );
 
 	} ?>
-		
+
 	<div id='main' class='all_colors' data-scroll-offset='<?php echo avia_header_setting('header_scroll_offset'); ?>'>
 
-	<?php 
-		
+	<?php
+
 		if(isset($avia_config['temp_logo_container'])) echo $avia_config['temp_logo_container'];
-		do_action('ava_after_main_container'); 
-		
+		do_action('ava_after_main_container');
+
 	?>
