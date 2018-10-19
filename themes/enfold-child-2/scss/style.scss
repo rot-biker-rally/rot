@@ -2,11 +2,31 @@ ul#av-burger-menu-ul > li > a {
 	text-transform: uppercase;
 }
 
+.product-sorting {
+	display: none;
+}
+
 .id-1720 { // /shop
 	.av_one_fourth {
 		h2 {
 			text-align: center;
 			width: 100%;
 		}
+	}
+}
+
+.id-1794 { // /shop-category/gear/
+	.woocommerce-loop-category__title {
+		text-align: center;
+		padding: 10px 0 !important
+	}
+}
+
+.tax-product_cat {
+	#av_product_description h1 {
+		font-weight: 700;
+		font-size: 77px;
+		letter-spacing: 4.2px;
+		text-transform: uppercase;
 	}
 }
