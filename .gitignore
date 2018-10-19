@@ -11,6 +11,7 @@
 /mu-plugins/wpengine-common
 /plugins
 /themes/enfold
+/themes/enfold-child-2/dist
 /upgrade/
 cache
 node_modules
