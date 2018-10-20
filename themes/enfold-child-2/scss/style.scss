@@ -2,6 +2,19 @@ ul#av-burger-menu-ul > li > a {
 	text-transform: uppercase;
 }
 
+#menu-item-shop {
+	border-left: none;
+	border-right: none;
+}
+
+h3#ship-to-different-address {
+	label {
+		span {
+			font-size: inherit;
+		}
+	}
+}
+
 .product-sorting {
 	display: none;
 }
@@ -25,6 +38,13 @@ ul#av-burger-menu-ul > li > a {
 .woocommerce-checkout {
 	.woocommerce-form-coupon-toggle {
 		display: none;
+	}
+}
+
+.woocommerce-cart,
+.woocommerce-checkout {
+	tr:nth-child(even) {
+		color: inherit;
 	}
 }
 
