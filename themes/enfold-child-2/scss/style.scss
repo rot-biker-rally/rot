@@ -22,6 +22,12 @@ ul#av-burger-menu-ul > li > a {
 	}
 }
 
+.woocommerce-checkout {
+	.woocommerce-form-coupon-toggle {
+		display: none;
+	}
+}
+
 .tax-product_cat {
 	#av_product_description h1 {
 		font-weight: 700;
