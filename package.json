@@ -15,6 +15,6 @@
     "scripts": {
         "sass": "node-sass --output-style expanded themes/enfold-child-2/scss/style.scss themes/enfold-child-2/dist/css/style.css",
         "postsass": "postcss themes/enfold-child-2/dist/css/ --use autoprefixer --no-map --dir themes/enfold-child-2/dist/css/",
-        "watch:sass": "watch 'npm run sass' themes/enfold-child-2/scss/"
+        "w:s": "watch 'npm run sass' themes/enfold-child-2/scss/"
     }
 }
