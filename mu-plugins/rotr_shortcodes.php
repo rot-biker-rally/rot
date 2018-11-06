@@ -1,5 +1,4 @@
 <?php
-
 namespace rotr;
 
 function show_product( $atts )
