@@ -28,7 +28,12 @@ h3#ship-to-different-address {
 	}
 }
 
-.id-1794 { // /shop-category/gear/
+.archive.term-gear { // /shop-category/gear/
+	.product-category.product {
+		&, a {
+			border: none !important;
+		}
+	}
 	.woocommerce-loop-category__title {
 		text-align: center;
 		padding: 10px 0 !important
