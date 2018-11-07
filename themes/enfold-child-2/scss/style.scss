@@ -1,3 +1,18 @@
+div.woocommerce-message,
+ul.woocommerce-error {
+	background-color: transparent !important;
+	color: white !important;
+	border: solid 3px !important;
+}
+
+div.woocommerce-message {
+	border-color: green !important;
+}
+
+ul.woocommerce-error {
+	border-color: red !important;
+}
+
 ul#av-burger-menu-ul > li > a {
 	text-transform: uppercase;
 }
