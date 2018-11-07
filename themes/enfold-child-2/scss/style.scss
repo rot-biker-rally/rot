@@ -13,6 +13,14 @@ ul.woocommerce-error {
 	border-color: red !important;
 }
 
+.single-product {
+	.price {
+		span {
+			font-size: 1.4rem !important;
+		}
+	}
+}
+
 ul#av-burger-menu-ul > li > a {
 	text-transform: uppercase;
 }
