@@ -1,12 +1,10 @@
 div.woocommerce-message,
 ul.woocommerce-error {
 	color: white !important;
-	border: solid 4px !important;
 }
 
 div.woocommerce-message {
 	background-color: #666 !important;
-	border-color: green !important;
 	a.button {
 		background-color: #f60 !important;
 		&:hover {
@@ -16,8 +14,8 @@ div.woocommerce-message {
 }
 
 ul.woocommerce-error {
+	border: solid 3px red !important;
 	background-color: transparent !important;
-	border-color: red !important;
 }
 
 .single-product {
