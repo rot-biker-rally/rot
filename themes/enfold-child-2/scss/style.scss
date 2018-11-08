@@ -1,15 +1,22 @@
 div.woocommerce-message,
 ul.woocommerce-error {
-	background-color: transparent !important;
 	color: white !important;
-	border: solid 3px !important;
+	border: solid 4px !important;
 }
 
 div.woocommerce-message {
+	background-color: #666 !important;
 	border-color: green !important;
+	a.button {
+		background-color: #f60 !important;
+		&:hover {
+			color: black !important;
+		}
+	}
 }
 
 ul.woocommerce-error {
+	background-color: transparent !important;
 	border-color: red !important;
 }
 
