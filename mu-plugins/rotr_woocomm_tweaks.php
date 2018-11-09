@@ -3,7 +3,6 @@ namespace rotr;
 
 $custom_rv_fields = array(
 	array( 'public',      'Public Sale',           'bool' ),
-	array( 'locid',	      'Location ID',           'txt' ),
 	array( 'locid-old',   'Old Location ID',       'txt' ),
 	array( 'lat',         'Latitude',              'txt' ),
 	array( 'lon',         'Longitude',             'txt' ),
