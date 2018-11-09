@@ -11,11 +11,12 @@
 /mu-plugins/wpengine-common
 /plugins
 /themes/enfold
-/themes/twentyseventeen
 /themes/enfold-child-2/dist
+/themes/twentyseventeen
 /upgrade/
 cache
 node_modules
+prepros-6.config
 prepros.cfg
 themes/index.php
 uploads
