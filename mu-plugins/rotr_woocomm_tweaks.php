@@ -44,6 +44,12 @@ $rv_spot_custom_fields_save = function ( $post_id ) use( $custom_rv_fields ) {
 };
 add_action( 'woocommerce_process_product_meta', $rv_spot_custom_fields_save );
 
+function mangle_query( $query ) {
+	if ( $query->is_tax('product_cat', 'rv-spaces' ) ) {
+		$query->query_vars['posts_per_page'] = -1;
+	}
+}
+add_action( 'pre_get_posts', __NAMESPACE__.'\mangle_query' );
 
 /*
  * Causes WooCommerce Ticket product pages to stop redirecting to their event page
