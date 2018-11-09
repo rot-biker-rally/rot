@@ -2,13 +2,17 @@
 namespace rotr;
 
 $custom_rv_fields = array(
+	array( 'public',      'Public Sale',           'bool' ),
 	array( 'locid',	     'Location ID',          'txt' ),
-	array( 'locid_old',  'Old Location ID',      'txt' ),
-	array( 'latlon',     'Lat/Long Coordinates', 'txt' ),
+	array( 'locid-old',   'Old Location ID',       'txt' ),
+	array( 'lat',         'Latitude',              'txt' ),
+	array( 'lon',         'Longitude',             'txt' ),
 	array( 'renewable',  'Subject to Renewal',   'bool' ),
-	array( 'prev_email', 'Previous Email',       'txt' ),
-	array( 'prev_fname', 'Previous First Name',  'txt' ),
-	array( 'prev_lname', 'Previous Last Name',   'txt' ),
+	array( 'renew-email', 'Renewal Email',         'txt' ),
+	array( 'renew-fname', 'Renewal First Name',    'txt' ),
+	array( 'renew-lname', 'Renewal Last Name',     'txt' ),
+	array( 'renew-key',   'Renewal Key',           'txt' ),
+	array( 'vendor',      'Earmarked for Vendors', 'bool' ),
 );
 
 $rv_spot_custom_fields_define = function () use( $custom_rv_fields ) {
