@@ -1,4 +1,10 @@
 <?php
+/*
+Plugin Name: ROT Rally ACF Shortcodes
+Plugin URI: https://bitbucket.org/nbrippc/mu-plugins/src/master/nbri-settings-acf.php
+Description: Define custom shortcodes
+Version:     1.0
+*/
 namespace rotr;
 
 function show_product( $atts )

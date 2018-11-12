@@ -1,4 +1,10 @@
 <?php
+/*
+Plugin Name: ROT Rally WooCommerce Tweaks
+Plugin URI: https://bitbucket.org/nbrippc/mu-plugins/src/master/nbri-settings-acf.php
+Description: Augment WooCommerce data structure and adjust behavior
+Version:     1.0
+*/
 namespace rotr;
 
 $custom_rv_fields = array(
