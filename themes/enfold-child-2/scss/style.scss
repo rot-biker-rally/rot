@@ -56,7 +56,26 @@ h3#ship-to-different-address {
 	}
 }
 
-.archive.term-gear { // /shop-category/gear/
+.renew-spot {
+	margin-top: 3rem;
+	& + .rewnew-spot {
+		margin-top: 4em;
+	}
+	table.shop_attributes {
+		th {
+			width: 200px;
+		}
+	}
+}
+
+.renew-err {
+	margin-bottom: 3em;
+}
+.container > .renew-err {
+	margin-bottom: 4em;
+}
+
+.archive.term-gear { // /shop-category/gear
 	.product-category.product {
 		&, a {
 			border: none !important;

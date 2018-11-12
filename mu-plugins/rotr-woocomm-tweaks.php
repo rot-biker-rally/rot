@@ -57,6 +57,26 @@ function mangle_query( $query ) {
 }
 add_action( 'pre_get_posts', __NAMESPACE__.'\mangle_query' );
 
+/**
+ * Handle a custom 'renew-key' query var to get products with the 'renew-key' meta.
+ * @param array $query - Args for WP_Query.
+ * @param array $query_vars - Query vars from WC_Product_Query.
+ * @return array modified $query
+ */
+function handle_custom_query_var( $query, $query_vars ) {
+	if ( ! empty( $query_vars['renew-key'] ) ) {
+		$query['meta_query'][] = array(
+			'key' => 'renew-key',
+			'value' => esc_attr( $query_vars['renew-key'] ),
+		);
+	}
+
+	return $query;
+}
+add_filter( 'woocommerce_product_data_store_cpt_get_products_query', __NAMESPACE__.'\handle_custom_query_var', 10, 2 );
+
+
+
 /*
  * Causes WooCommerce Ticket product pages to stop redirecting to their event page
  * See https://theeventscalendar.com/knowledgebase/selling-tickets-from-the-woocommerce-products-page/

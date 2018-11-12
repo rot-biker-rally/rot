@@ -1,6 +1,6 @@
 <?php
 	if ( !defined('ABSPATH') ){ die(); }
-	
+
 	global $avia_config;
 
 	/*
@@ -10,7 +10,7 @@
 
 
  	 if( get_post_meta(get_the_ID(), 'header', true) != 'no') echo avia_title();
- 	 
+
  	 do_action( 'ava_after_main_title' );
 	 ?>
 
@@ -28,8 +28,9 @@
 
                     $avia_config['size'] = avia_layout_class( 'main' , false) == 'fullsize' ? 'entry_without_sidebar' : 'entry_with_sidebar';
                     get_template_part( 'includes/loop', 'page' );
-                    ?>
-
+                    if ( is_page('rv-space-renewal' ) ) {
+	                    get_template_part( 'rotr/renewal' );
+                    } ?>
 				<!--end content-->
 				</main>
 
