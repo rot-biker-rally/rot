@@ -30,11 +30,11 @@ $rv_spot_custom_fields_define = function () use( $custom_rv_fields ) {
 		);
 		switch ($f[2]) {
 			case 'bool':
-				woocommerce_wp_checkbox( $args );
-				break;
+			woocommerce_wp_checkbox( $args );
+			break;
 			default:
-				woocommerce_wp_text_input( $args );
-				break;
+			woocommerce_wp_text_input( $args );
+			break;
 		}
 	}
 };
@@ -75,7 +75,18 @@ function handle_custom_query_var( $query, $query_vars ) {
 }
 add_filter( 'woocommerce_product_data_store_cpt_get_products_query', __NAMESPACE__.'\handle_custom_query_var', 10, 2 );
 
-
+function knockout_addons( $plugins ){
+	$req = parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH );
+	if ( strpos( $req, 'shop-item/4-day' ) ) {
+		$v = 'woocommerce-product-addons-2.9.7/woocommerce-product-addons.php';
+		$k = array_search( $v, $plugins );
+		if ( $k !== false ) {
+			unset( $plugins[$k] );
+		}
+	}
+	return $plugins;
+}
+add_filter( 'option_active_plugins', __NAMESPACE__.'\knockout_addons' );
 
 /*
  * Causes WooCommerce Ticket product pages to stop redirecting to their event page
