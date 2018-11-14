@@ -18,6 +18,8 @@ function enqueue() {
 		wp_enqueue_script( 'map-style', get_stylesheet_directory_uri() . '/dist/js/map-style.js', null, false, true );
 			$js_deps[] = 'map-api';
 			$js_deps[] = 'map-style';
+		wp_enqueue_script( 'map-utility', get_stylesheet_directory_uri() . '/dist/js/map-utility.js', $js_deps, false, true );
+			$js_deps[] = 'map-utility';
 	}
 
 	if( is_tax('product_cat', 'rv-spaces' ) ) {
