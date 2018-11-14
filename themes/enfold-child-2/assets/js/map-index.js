@@ -27,7 +27,7 @@ function buildIcon(liveMarker) {
 function attachInfoWindow(marker, infowindow, p) {
     marker.addListener('click', () => {
         infowindow.setContent(
-            `${p.title}<br>`+
+            `<h3>${p.title}</h3>`+
             `<a class="button" href="${p.link}" target="_blank">Buy Now</a>`
         )
         infowindow.open(map, marker)
@@ -35,7 +35,6 @@ function attachInfoWindow(marker, infowindow, p) {
 }
 
 function loadPoints(points, map, bounds, infowindow) {
-    console.log(points[0])
     points.forEach(p => {
         let iconStyle
         const latLng = new google.maps.LatLng(p.lat, p.lon)

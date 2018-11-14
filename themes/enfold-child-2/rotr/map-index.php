@@ -7,8 +7,6 @@ $r = array();
 foreach ( $posts as $p ) {
 	$m = get_post_meta( $p->ID );
 	$r[] = array(
-		'id'        => $p->ID,
-		'slug'      => $p->post_name,
 		'title'     => $p->post_title,
 		'lat'       => $m['lat'][0],
 		'lon'       => $m['lon'][0],
