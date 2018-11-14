@@ -1,18 +1,8 @@
-<?php namespace rotr; ?>
-
-<div id="map"></div>
-
 <?php
-function p($x) {
-	echo('<pre>');
-	print_r($x);
-	echo('</pre>');
-}
+namespace rotr;
 
 global $wp_query;
 $posts = $wp_query->posts;
-	// var_dump($posts[0]);
-	// var_dump(get_post_meta( $posts[0]->ID ));
 $r = array();
 foreach ( $posts as $p ) {
 	$m = get_post_meta( $p->ID );
@@ -28,6 +18,8 @@ foreach ( $posts as $p ) {
 		'link'      => get_permalink($p->ID),
 	);
 }
-$spot_json = json_encode(array_slice($r, 0, 3), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
-p($spot_json);
-	// file_put_contents('wp-content/themes/enfold-child-2/woocommerce/spots.csv', $spot_json);
+$spots_json = json_encode($r, JSON_UNESCAPED_SLASHES);
+?>
+
+<script>var points=<?=$spots_json?></script>
+<div id="map"></div>
