@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: ROT Rally ACF Shortcodes
-Plugin URI: https://bitbucket.org/nbrippc/mu-plugins/src/master/nbri-settings-acf.php
+Plugin URI: https://github.com/rot-biker-rally/rot-rally/blob/master/mu-plugins/rotr-shortcodes.php
 Description: Define custom shortcodes
 Version:     1.0
 */

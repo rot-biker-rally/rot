@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: ROT Rally WooCommerce Tweaks
-Plugin URI: https://bitbucket.org/nbrippc/mu-plugins/src/master/nbri-settings-acf.php
+Plugin URI: https://github.com/rot-biker-rally/rot-rally/blob/master/mu-plugins/rotr-woocomm-tweaks.php
 Description: Augment WooCommerce data structure and adjust behavior
 Version:     1.0
 */

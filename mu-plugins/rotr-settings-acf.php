@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: ROT Rally ACF Settings
-Plugin URI: https://bitbucket.org/nbrippc/mu-plugins/src/master/nbri-settings-acf.php
+Plugin URI: https://github.com/rot-biker-rally/rot-rally/blob/master/mu-plugins/rotr-settings-acf.php
 Description: Configure ACF operation
 Version:     1.0
 */
