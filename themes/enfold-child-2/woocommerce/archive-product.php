@@ -46,32 +46,8 @@ do_action( 'woocommerce_before_main_content' );
 	?>
 </header>
 <?php
-function p($x) {
-	echo('<pre>');
-	print_r($x);
-	echo('</pre>');
-}
-
 if( is_tax('product_cat', 'rv-spaces' ) ) {
-	global $wp_query;
-	$posts = $wp_query->posts;
-	$r = array();
-	foreach ( $posts as $p ) {
-		$m = get_post_meta( $p->ID );
-		$r[] = array(
-			'id'        => $p->ID,
-			'slug'      => $p->post_name,
-			'title'     => $p->post_title,
-			'lat'       => $m['lat'][0],
-			'lon'       => $m['lon'][0],
-			'sku'       => $m['_sku'][0],
-			'stock'     => $m['_stock'][0],
-			'renewable' => ($m['renewable'][0] == 'yes') ? 1 : 0,
-			'link'      => get_permalink($p->ID),
-		);
-	}
-	$spot_json = json_encode($r, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
-	p($spot_json);
+    get_template_part( 'rotr/map-index' );
 } else {
 	if ( woocommerce_product_loop() ) {
 
