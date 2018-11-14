@@ -5,6 +5,7 @@
 */
 // BEGIN ENQUEUE PARENT ACTION
 // AUTO GENERATED - Do not modify or remove comment markers above or below:
+// END ENQUEUE PARENT ACTION
 
 add_theme_support( 'avia_custom_shop_page' );
 
@@ -13,7 +14,7 @@ function enqueue() {
 
 	$js_deps = array();
 
-	if( is_tax('product_cat', 'rv-spaces' ) /* or other map pages */) {
+	if( is_tax('product_cat', 'rv-spaces' ) || is_page( 'rv-space-renewal' )/* or other map pages */) {
 		wp_enqueue_script( 'map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBQfsdeJ4vTR40cVrAF9P4T5dPss1vK7v4', null, false, true );
 		wp_enqueue_script( 'map-style', get_stylesheet_directory_uri() . '/dist/js/map-style.js', null, false, true );
 			$js_deps[] = 'map-api';
@@ -25,8 +26,12 @@ function enqueue() {
 	if( is_tax('product_cat', 'rv-spaces' ) ) {
 		wp_enqueue_script( 'map-index', get_stylesheet_directory_uri() . '/dist/js/map-index.js', $js_deps, false, true );
 	}
+
+	if( is_page( 'rv-space-renewal' ) ) {
+		wp_enqueue_script( 'map-renewal', get_stylesheet_directory_uri() . '/dist/js/map-renewal.js', $js_deps, false, true );
+	}
+
 }
 
 add_action( 'wp_enqueue_scripts', 'enqueue', 999 );
 
-// END ENQUEUE PARENT ACTION

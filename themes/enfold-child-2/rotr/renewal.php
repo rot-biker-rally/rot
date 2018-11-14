@@ -22,6 +22,15 @@ function get_spots( $rkey, $cf ) {
 }
 list( $err, $spots ) = get_spots( $rkey, $cf );
 
+
+$skus = array();
+foreach ($spots as $s) {
+	$skus[] = $s->get_sku();
+}
+
+$spots_json = (rotr\spots_prep( rotr\spots_retrieve() ));
+$spots_json_hot = json_encode($skus);
+
 if ( $err ): ?>
 	<h2 class="renew-err"><?=$err?></h2>
 	<?php
@@ -29,6 +38,9 @@ else:
 	global $post; ?>
 	<h1><?=$cf['hed']?></h1>
 	<h2><?=$spots[0]->get_meta('renew-fname').' '.$spots[0]->get_meta('renew-lname').', '.$spots[0]->get_meta('renew-email')?></h2>
+	<script>var points=<?=$spots_json?></script>
+	<script>var pointsHot=<?=$spots_json_hot?></script>
+	<div id="map"></div>
 	<?php foreach ( $spots as $s ): ?>
 		<div class="renew-spot">
 		<?php
