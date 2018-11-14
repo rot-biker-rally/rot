@@ -40,6 +40,7 @@ else:
 	<h2><?=$spots[0]->get_meta('renew-fname').' '.$spots[0]->get_meta('renew-lname').', '.$spots[0]->get_meta('renew-email')?></h2>
 	<script>var points=<?=$spots_json?></script>
 	<script>var pointsHot=<?=$spots_json_hot?></script>
+	<script>var rkey='<?=$rkey?>'</script>
 	<div id="map"></div>
 	<?php foreach ( $spots as $s ): ?>
 		<div class="renew-spot">

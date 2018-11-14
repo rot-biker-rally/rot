@@ -24,11 +24,13 @@ function buildIcon(hot) {
     return icon
 }
 
-function attachInfoWindow(marker, infowindow, p) {
+function attachInfoWindow(marker, infowindow, p, key) {
+    const qv = (key) ? `?rk=${key}` : ''
+    const cta = (key) ? 'Renew Now' : 'Buy Now'
     marker.addListener('click', () => {
         infowindow.setContent(
             `<h3>${p.title}</h3>`+
-            `<a class="button" href="${p.link}" target="_blank">Buy Now</a>`
+            `<a class="button" href="${p.link + qv}" target="_blank">${cta}</a>`
             )
         infowindow.open(map, marker)
     })
@@ -45,7 +47,7 @@ function extractSaleSet(points) {
 }
 
 
-function loadPoints(points, map, bounds, hots, infowindow=null, zoomAll=true) {
+function loadPoints(points, map, bounds, hots, infowindow=null, zoomAll=true, key='') {
     points.forEach(p => {
         const latLng = new google.maps.LatLng(p.lat, p.lon)
         const hot = hots.includes(p.sku)
@@ -58,7 +60,7 @@ function loadPoints(points, map, bounds, hots, infowindow=null, zoomAll=true) {
             map
         })
         if (hot && infowindow) {
-            attachInfoWindow(marker, infowindow, p)
+            attachInfoWindow(marker, infowindow, p, key)
         }
     })
 }
@@ -67,7 +69,7 @@ function setViewport(bounds, map, subset=false) {
     map.fitBounds(bounds, 10)
     if (subset) {
         google.maps.event.addListenerOnce(map, 'idle', () => {
-          if (map.getZoom() != 18) map.setZoom(18)
-      })
+            if (map.getZoom() != 18) map.setZoom(18)
+        })
     }
 }
