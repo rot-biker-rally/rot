@@ -36,8 +36,10 @@ if ( $err ): ?>
 	<?php
 else:
 	global $post; ?>
-	<h1><?=$cf['hed']?></h1>
-	<h2><?=$spots[0]->get_meta('renew-fname').' '.$spots[0]->get_meta('renew-lname').', '.$spots[0]->get_meta('renew-email')?></h2>
+	<div class="renewal-hed-dek">
+		<h1><?=$cf['hed']?></h1>
+		<h2><?=$spots[0]->get_meta('renew-fname').' '.$spots[0]->get_meta('renew-lname')?></h2>
+	</div>
 	<script>var points=<?=$spots_json?></script>
 	<script>var pointsHot=<?=$spots_json_hot?></script>
 	<script>var rkey='<?=$rkey?>'</script>

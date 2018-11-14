@@ -29,8 +29,10 @@ function attachInfoWindow(marker, infowindow, p, key) {
     const cta = (key) ? 'Renew Now' : 'Buy Now'
     marker.addListener('click', () => {
         infowindow.setContent(
+            `<div class="infowindow-innards">`+
             `<h3>${p.title}</h3>`+
-            `<a class="button" href="${p.link + qv}" target="_blank">${cta}</a>`
+            `<a class="button" href="${p.link + qv}" target="_blank">${cta}</a>`+
+            `</div>`
             )
         infowindow.open(map, marker)
     })

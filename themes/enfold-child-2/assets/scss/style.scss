@@ -56,9 +56,34 @@ h3#ship-to-different-address {
 	}
 }
 
+.id-5298 { // /rv-space-renewal
+	#map {
+		height: 400px;
+		width: 100%;
+	}
+}
+
+.renewal-hed-dek {
+	margin: 2rem auto;
+}
+
+.infowindow-innards {
+	h3 {
+		font-size: 20px !important;
+		margin: 0 0 8px 0 !important;
+	}
+	.button {
+		display: inline-block !important;
+		font-size: 12px !important;
+		font-weight: 400 !important;
+		margin: 0 !important;
+		padding: 15px !important;
+	}
+}
+
 .renew-spot {
 	margin-top: 3rem;
-	& + .rewnew-spot {
+	& + .renew-spot {
 		margin-top: 4em;
 	}
 	table.shop_attributes {
@@ -83,13 +108,6 @@ h3#ship-to-different-address {
 	.template-shop .page-title {
 		display: block;
 		text-transform: uppercase;
-	}
-}
-
-.id-5298 { // /rv-space-renewal
-	#map {
-		height: 400px;
-		width: 100%;
 	}
 }
 
