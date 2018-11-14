@@ -9,12 +9,16 @@
     "license": "GPL-3.0-or-later",
     "devDependencies": {
         "autoprefixer": "^9.2.1",
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
         "node-sass": "^4.9.4",
         "postcss-cli": "^6.0.1"
     },
     "scripts": {
-        "sass": "node-sass --output-style expanded themes/enfold-child-2/scss/style.scss themes/enfold-child-2/dist/css/style.css",
+        "sass": "node-sass --output-style expanded themes/enfold-child-2/assets/scss/style.scss themes/enfold-child-2/dist/css/style.css",
         "postsass": "postcss themes/enfold-child-2/dist/css/ --use autoprefixer --no-map --dir themes/enfold-child-2/dist/css/",
-        "w:s": "watch 'npm run sass' themes/enfold-child-2/scss/"
+        "js": "babel themes/enfold-child-2/assets/js --out-dir themes/enfold-child-2/dist/js --presets=env",
+        "w:s": "watch 'npm run sass' themes/enfold-child-2/assets/scss/",
+        "w:j": "watch 'npm run js' themes/enfold-child-2/assets/js/"
     }
 }
