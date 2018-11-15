@@ -22,26 +22,21 @@ function get_spots( $rkey, $cf ) {
 }
 list( $err, $spots ) = get_spots( $rkey, $cf );
 
-
-$skus = array();
-foreach ($spots as $s) {
-	$skus[] = $s->get_sku();
-}
-
-$spots_json = (rotr\spots_prep( rotr\spots_retrieve() ));
-$spots_json_hot = json_encode($skus);
-
 if ( $err ): ?>
 	<h2 class="renew-err"><?=$err?></h2>
 	<?php
 else:
+	$skus = array();
+	foreach ($spots as $s) {
+		$skus[] = $s->get_sku();
+	}
 	global $post; ?>
 	<div class="renewal-hed-dek">
 		<h1><?=$cf['hed']?></h1>
 		<h2><?=$spots[0]->get_meta('renew-fname').' '.$spots[0]->get_meta('renew-lname')?></h2>
 	</div>
-	<script>var points=<?=$spots_json?></script>
-	<script>var pointsHot=<?=$spots_json_hot?></script>
+	<script>var points=<?=rotr\spots_prep( rotr\spots_retrieve() )?></script>
+	<script>var pointsHot=<?=json_encode($skus)?></script>
 	<script>var rkey='<?=$rkey?>'</script>
 	<div id="map"></div>
 	<?php foreach ( $spots as $s ): ?>
