@@ -112,7 +112,26 @@ function add_processing_fee() {
 
 	$woocommerce->cart->add_fee( 'Processing Fee', 2.95 );
 }
-add_action( 'woocommerce_cart_calculate_fees', __NAMESPACE__.'\add_processing_fee' );
+add_action( 'woocommerce_cart_calculate_fees', __NAMESPACE__.'\add_processing_fee', 10 );
+
+function rv_space_bundle_tax( ) {
+	global $woocommerce;
+	if ( is_admin() && ! defined( 'DOING_AJAX' ) )
+		return;
+
+	$c = $woocommerce->cart;
+	$spots = 0;
+	foreach ( $c->get_cart() as $p ) {
+		$p = $p['data'];
+	    $spots += ( has_term( 'rv-spaces', 'product_cat', $p->id ) ) ? 1 : 0;
+	}
+	if ( $spots > 0 ) {
+		$price = (int) wc_get_product( wc_get_product_id_by_sku( 'REG-4-DAY' ) )->get_price();
+		$tax = $spots * 2 * $price * 0.0825;
+		$c->add_fee( 'Bundled Passes Tax', $tax );
+	}
+}
+add_action( 'woocommerce_cart_calculate_fees', __NAMESPACE__.'\rv_space_bundle_tax', 100 );
 
 /*
  * Causes WooCommerce Ticket product pages to stop redirecting to their event page
