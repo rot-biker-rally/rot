@@ -31,6 +31,9 @@ function attachInfoWindow(marker, infowindow, p, key) {
         infowindow.setContent(
             `<div class="infowindow-innards">`+
             `<h3>${p.title}</h3>`+
+            `<p class="pr">$${p.price}</p>`+
+            `<p>Old ID: ${p.locid_old}</p>`+
+            `<p>${p.atts.join(' | ')}</p>`+
             `<a class="button" href="${p.link + qv}" target="_blank">${cta}</a>`+
             `</div>`
             )
