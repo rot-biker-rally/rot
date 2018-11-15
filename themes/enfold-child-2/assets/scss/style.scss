@@ -114,6 +114,12 @@ h3#ship-to-different-address {
 	}
 }
 
+.bundled_item_cart_details {
+	.stock {
+		display: none;
+	}
+}
+
 .archive.term-gear { // /shop-category/gear
 	.product-category.product {
 		&, a {
