@@ -102,6 +102,18 @@ function rv_tax_desdcription() {
 }
 add_action( 'woocommerce_archive_description', __NAMESPACE__.'\rv_tax_desdcription' );
 
+/**
+ * Add a standard $ value surcharge to all transactions in cart / checkout
+ */
+function add_processing_fee() {
+	global $woocommerce;
+	if ( is_admin() && ! defined( 'DOING_AJAX' ) )
+		return;
+
+	$woocommerce->cart->add_fee( 'Processing Fee', 2.95 );
+}
+add_action( 'woocommerce_cart_calculate_fees', __NAMESPACE__.'\add_processing_fee' );
+
 /*
  * Causes WooCommerce Ticket product pages to stop redirecting to their event page
  * See https://theeventscalendar.com/knowledgebase/selling-tickets-from-the-woocommerce-products-page/
