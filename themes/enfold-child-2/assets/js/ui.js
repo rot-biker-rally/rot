@@ -4,8 +4,8 @@ jQuery(document).ready($ => {
 // RV Space //
 //////////////
 
-const $nameFieldRV = $('.product_cat-rv-spaces .bundled_item_cart_details .product-addon-attendee p.form-row')
-const $shirtFieldRV = $('.product_cat-rv-spaces .bundled_item_cart_details .product-addon-shirt-size select option:first-child')
+const $nameFieldRV = $('.product_cat-rv-spaces').find('.product-addon-attendee, .product-addon-rv-alias').children('p.form-row')
+const $shirtFieldRV = $('.product_cat-rv-spaces .product-addon-shirt-size select option:first-child')
 
 $nameFieldRV.each( (idx, el) => {
 	const $el = $(el)
