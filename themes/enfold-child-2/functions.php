@@ -14,7 +14,7 @@ function enqueue() {
 
 	$js_deps = array();
 
-	if( is_tax('product_cat', 'rv-spaces' ) || is_page( 'rv-space-renewal' )/* or other map pages */) {
+	if( is_product_category( 'rv-spaces' ) || is_page( 'rv-space-renewal' )/* or other map pages */) {
 		wp_enqueue_script( 'map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBQfsdeJ4vTR40cVrAF9P4T5dPss1vK7v4', null, false, true );
 		wp_enqueue_script( 'map-style', get_stylesheet_directory_uri() . '/dist/js/map-style.js', null, false, true );
 			$js_deps[] = 'map-api';
@@ -23,12 +23,16 @@ function enqueue() {
 			$js_deps[] = 'map-utility';
 	}
 
-	if( is_tax('product_cat', 'rv-spaces' ) ) {
+	if( is_product_category( 'rv-spaces' ) ) {
 		wp_enqueue_script( 'map-index', get_stylesheet_directory_uri() . '/dist/js/map-index.js', $js_deps, false, true );
 	}
 
 	if( is_page( 'rv-space-renewal' ) ) {
 		wp_enqueue_script( 'map-renewal', get_stylesheet_directory_uri() . '/dist/js/map-renewal.js', $js_deps, false, true );
+	}
+
+	if ( is_product() && ( has_term( 'rv-spaces' , 'product_cat') || has_term( 'tickets' , 'product_cat') ) ) {
+		wp_enqueue_script( 'rotr-ui', get_stylesheet_directory_uri() . '/dist/js/ui.js', array( 'jquery' ), false, true );
 	}
 
 }

@@ -114,9 +114,33 @@ h3#ship-to-different-address {
 	}
 }
 
-.bundled_item_cart_details {
-	.stock {
-		display: none;
+.product_cat-rv-spaces {
+	.bundled_item_cart_details {
+		.stock {
+			display: none;
+		}
+		.product-addon-attendee {
+			p {
+				float: left;
+				clear: none;
+				width: 49%;
+				input::placeholder {
+					color: darken(white, 30%);
+				}
+				& + p {
+					margin-left: 2% !important;
+				}
+				label {
+					display: none !important;
+				}
+			}
+		}
+		.product-addon-shirt-size {
+			clear: both;
+			h3 {
+				display: none;
+			}
+		}
 	}
 }
 
