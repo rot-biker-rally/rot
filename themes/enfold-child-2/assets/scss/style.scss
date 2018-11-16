@@ -114,6 +114,33 @@ h3#ship-to-different-address {
 	}
 }
 
+.product_cat-tickets {
+	.wccpf-fields-container {
+		.first_name-wrapper,
+		.last_name-wrapper {
+			float: left;
+			width: 50%;
+			input {
+				margin-bottom: 0 !important;
+				&::placeholder {
+					color: darken(white, 30%);
+				}
+			}
+		}
+		.shirt_size-wrapper {
+			select {
+				width: 100% !important;
+			}
+		}
+		td {
+			border: none;
+		}
+		.wccpf_label {
+			display: none;
+		}
+	}
+}
+
 .product_cat-rv-spaces {
 	.bundled_item_cart_details {
 		.stock {
