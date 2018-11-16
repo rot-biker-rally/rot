@@ -171,15 +171,23 @@ h3#ship-to-different-address {
 	}
 }
 
-.archive.term-gear { // /shop-category/gear
-	.product-category.product {
-		&, a {
-			border: none !important;
+.archive { // /shop-category/whatever
+	&.term-men,
+	&.term-women {
+		.wccpf-fields-container {
+			display: none;
 		}
 	}
-	.woocommerce-loop-category__title {
-		text-align: center;
-		padding: 10px 0 !important
+	&.term-gear {
+		.product-category.product {
+			&, a {
+				border: none !important;
+			}
+		}
+		.woocommerce-loop-category__title {
+			text-align: center;
+			padding: 10px 0 !important
+		}
 	}
 }
 
