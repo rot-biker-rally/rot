@@ -20,6 +20,7 @@ $shirtFieldRV.prop('disabled', true).text('Select shirt size...')
 ////////////
 
 const $nameFieldTick = $('.product_cat-tickets .wccpf-fields-container').find('.first_name-wrapper, .last_name-wrapper')
+const $shirtFieldTick = $('.product_cat-tickets .wccpf-fields-container select option:first-child')
 
 $nameFieldTick.each( (idx, el) => {
 	const $el = $(el)
@@ -27,5 +28,7 @@ $nameFieldTick.each( (idx, el) => {
 	console.log(label)
 	$el.find('input').attr('placeholder', label.trim());
 })
+
+$shirtFieldTick.prop('disabled', true)
 
 })
