@@ -403,8 +403,37 @@
 													<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px;"><?php echo $ticket['ticket_name']; ?></span>
 												</td>
 												<td class="ticket-details" valign="top" align="left" width="120" style="padding: 0 !important; width:120px; margin:0 !important;">
-													<h6 style="color:#909090 !important; margin:0 0 10px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php esc_html_e( 'Purchaser', 'event-tickets' ); ?></h6>
-													<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px;"><?php echo $ticket['holder_name']; ?></span>
+													<h6 style="color:#909090 !important; margin:0 0 10px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;">Attendee</h6>
+													<span style="color:#0a0a0e !important; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-size:15px;">
+														<?php
+														$item = new WC_Order_Item_Product((int) $ticket['order_item_id']);
+														$handles = array(
+															'fname' => array(
+																'First Name - 1',
+																'Attendee - First Name',
+															),
+															'lname' => array(
+																'Last Name - 1',
+																'Attendee - Last Name',
+															),
+														);
+														$name = array();
+														foreach ($handles as $n => $nhandles) {
+															foreach ($nhandles as $h) {
+																if($item->meta_exists($h)) {
+																	$name[$n] = $item->get_meta($h);
+																}
+															}
+														}
+
+														$verify = array_map(function ($x) use($name) {
+															return isset($name[$x]);
+														}, array_keys($handles));
+														$verify = array_sum($verify);
+
+														echo ($verify > 1) ? implode(' ', $name) : $ticket['holder_name'];
+														?>
+														</span>
 												</td>
 												<td class="ticket-details new-row new-left-row" valign="top" align="left" width="120" style="padding: 0; width:120px; margin:0 !important;">
 													<h6 style="color:#909090 !important; margin:0 0 10px 0; font-family: 'Helvetica Neue', Helvetica, sans-serif; text-transform:uppercase; font-size:13px; font-weight:700 !important;"><?php esc_html_e( 'Security Code', 'event-tickets' ); ?></h6>
